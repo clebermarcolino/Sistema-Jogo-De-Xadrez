@@ -1,10 +1,10 @@
 package main;
 
 import jogodetabuleiro.Posicao;
+import jogodetabuleiro.Tabuleiro;
 
 public class Main {
     public static void main(String[] args) {
-        Posicao posicao = new Posicao(16, 53);
-        System.out.println(posicao);
+        Tabuleiro tabuleiro = new Tabuleiro(8, 8);
     }
 }
