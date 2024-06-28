@@ -1,7 +1,5 @@
 package main;
 
-import jogodetabuleiro.Posicao;
-import jogodetabuleiro.Tabuleiro;
 import xadrez.PartidaXadrez;
 
 public class Main {
