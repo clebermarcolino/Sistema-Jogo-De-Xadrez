@@ -1,6 +1,7 @@
 package main;
 
 import xadrez.Cor;
+import xadrez.PartidaXadrez;
 import xadrez.PecaXadrez;
 import xadrez.XadrezPosicao;
 
@@ -46,6 +47,13 @@ public class InterfaceUsuario {
                     "de a1 até h8");
         }
 
+    }
+
+    public static void mostrarPartida(PartidaXadrez partidaXadrez) {
+        mostrarTabuleiro(partidaXadrez.getPecas());
+        System.out.println();
+        System.out.println("Turno : " + partidaXadrez.getTurno());
+        System.out.println("Esperando jogador: " + partidaXadrez.getJogadorAtual());
     }
 
     public static void mostrarTabuleiro(PecaXadrez[][] pecas) {

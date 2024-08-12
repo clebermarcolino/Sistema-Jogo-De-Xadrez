@@ -13,10 +13,10 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         PartidaXadrez partidaXadrez = new PartidaXadrez();
-        while (true) {
+        do {
             try {
                 InterfaceUsuario.limparTela();
-                InterfaceUsuario.mostrarTabuleiro(partidaXadrez.getPecas());
+                InterfaceUsuario.mostrarPartida(partidaXadrez);
                 System.out.println();
                 System.out.print("Origem: ");
                 XadrezPosicao origem = InterfaceUsuario.lerXadrezPosicao(sc);
@@ -34,7 +34,6 @@ public class Main {
                 System.out.println(e.getMessage());
                 sc.nextLine();
             }
-
-        }
+        } while (true);
     }
 }
