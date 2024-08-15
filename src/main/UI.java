@@ -5,10 +5,13 @@ import xadrez.PartidaXadrez;
 import xadrez.PecaXadrez;
 import xadrez.XadrezPosicao;
 
+import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
-public class InterfaceUsuario {
+public class UI {
     // https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
 
     public static final String ANSI_RESET = "\u001B[0m";
@@ -49,8 +52,10 @@ public class InterfaceUsuario {
 
     }
 
-    public static void mostrarPartida(PartidaXadrez partidaXadrez) {
+    public static void mostrarPartida(PartidaXadrez partidaXadrez, List<PecaXadrez> capturadas) {
         mostrarTabuleiro(partidaXadrez.getPecas());
+        System.out.println();
+        mostrarPecasCapturadas(capturadas);
         System.out.println();
         System.out.println("Turno : " + partidaXadrez.getTurno());
         System.out.println("Esperando jogador: " + partidaXadrez.getJogadorAtual());
@@ -94,5 +99,20 @@ public class InterfaceUsuario {
             }
         }
         System.out.print(" ");
+    }
+
+    private static void mostrarPecasCapturadas(List<PecaXadrez> capturadas) {
+        List<PecaXadrez> branca = capturadas.stream().filter(x -> x.getCor() == Cor.BRANCO).toList();
+        List<PecaXadrez> preta = capturadas.stream().filter(x -> x.getCor() == Cor.PRETO).toList();
+        System.out.println("Peças capturadas: ");
+        System.out.print("Brancas: ");
+        System.out.print(ANSI_WHITE);
+        System.out.println(Arrays.toString(branca.toArray()));
+        System.out.print(ANSI_RESET);
+        System.out.print("Pretas: ");
+        System.out.print(ANSI_YELLOW);
+        System.out.println(Arrays.toString(preta.toArray()));
+        System.out.print(ANSI_RESET);
+
     }
 }
