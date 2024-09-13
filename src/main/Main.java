@@ -41,6 +41,8 @@ public class Main {
                 System.out.println(e.getMessage());
                 sc.nextLine();
             }
-        } while (true);
+        } while (!partidaXadrez.getCheckMate());
+        UI.limparTela();
+        UI.mostrarPartida(partidaXadrez, capturadas);
     }
 }
