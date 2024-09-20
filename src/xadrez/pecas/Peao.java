@@ -55,5 +55,12 @@ public class Peao extends PecaXadrez {
                 mat[p.getLinha()][p.getColuna()] = true;
             }
         }
+
+        return mat;
+    }
+
+    @Override
+    public String toString() {
+        return "P";
     }
 }
