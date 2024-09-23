@@ -3,10 +3,7 @@ package xadrez;
 import jogodetabuleiro.Peca;
 import jogodetabuleiro.Posicao;
 import jogodetabuleiro.Tabuleiro;
-import xadrez.pecas.Bispo;
-import xadrez.pecas.Peao;
-import xadrez.pecas.Rei;
-import xadrez.pecas.Torre;
+import xadrez.pecas.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -196,10 +193,12 @@ public class PartidaXadrez {
 
     private void configuracaoInicial() {
         novoLugarPeca('a', 1, new Torre(tabuleiro, Cor.BRANCO));
+        novoLugarPeca('b', 1, new Cavalo(tabuleiro, Cor.BRANCO));
         novoLugarPeca('c', 1, new Bispo(tabuleiro, Cor.BRANCO));
         novoLugarPeca('e', 1, new Rei(tabuleiro, Cor.BRANCO));
         novoLugarPeca('f', 1, new Bispo(tabuleiro, Cor.BRANCO));
         novoLugarPeca('h', 1, new Torre(tabuleiro, Cor.BRANCO));
+        novoLugarPeca('g', 1, new Cavalo(tabuleiro, Cor.BRANCO));
         novoLugarPeca('a', 2, new Peao(tabuleiro, Cor.BRANCO));
         novoLugarPeca('b', 2, new Peao(tabuleiro, Cor.BRANCO));
         novoLugarPeca('c', 2, new Peao(tabuleiro, Cor.BRANCO));
@@ -210,10 +209,12 @@ public class PartidaXadrez {
         novoLugarPeca('h', 2, new Peao(tabuleiro, Cor.BRANCO));
 
         novoLugarPeca('a', 8, new Torre(tabuleiro, Cor.PRETO));
+        novoLugarPeca('b', 8, new Cavalo(tabuleiro, Cor.PRETO));
         novoLugarPeca('c', 8, new Bispo(tabuleiro, Cor.PRETO));
         novoLugarPeca('e', 8, new Rei(tabuleiro, Cor.PRETO));
         novoLugarPeca('f', 8, new Bispo(tabuleiro, Cor.PRETO));
         novoLugarPeca('h', 8, new Torre(tabuleiro, Cor.PRETO));
+        novoLugarPeca('g', 8, new Cavalo(tabuleiro, Cor.PRETO));
         novoLugarPeca('a', 7, new Peao(tabuleiro, Cor.PRETO));
         novoLugarPeca('b', 7, new Peao(tabuleiro, Cor.PRETO));
         novoLugarPeca('c', 7, new Peao(tabuleiro, Cor.PRETO));
