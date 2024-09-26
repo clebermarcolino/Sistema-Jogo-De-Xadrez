@@ -17,6 +17,7 @@ public class PartidaXadrez {
     private List<Peca> pecasCapturadas = new ArrayList<Peca>();
     private boolean check;
     private boolean checkMate;
+    private PecaXadrez enPassantVulnerable;
 
     public PartidaXadrez() {
         this.tabuleiro = new Tabuleiro(8 , 8);
@@ -45,6 +46,10 @@ public class PartidaXadrez {
 
     public boolean getCheckMate() {
         return checkMate;
+    }
+
+    public PecaXadrez getEnPassantVulnerable() {
+        return enPassantVulnerable;
     }
 
 
@@ -77,7 +82,10 @@ public class PartidaXadrez {
             throw new XadrezException("Você não pode se colocar em xeque!");
         }
 
+        PecaXadrez pecaMovida = (PecaXadrez)tabuleiro.peca(destino);
+
         // check = (testCheck(oponente(jogadorAtual))) ? true : false;
+
         check = testCheck(oponente(jogadorAtual));
 
         if(testCheckMate(oponente(jogadorAtual))) {
@@ -87,6 +95,14 @@ public class PartidaXadrez {
             proximoTurno();
         }
 
+        // movimento especial en passant
+
+        if(pecaMovida instanceof Peao && (destino.getLinha() == origem.getLinha() - 2 || destino.getLinha() == origem.getLinha() + 2)) {
+            enPassantVulnerable = pecaMovida;
+        }
+        else {
+            enPassantVulnerable = null;
+        }
         return (PecaXadrez) pecaCapturada;
     }
 
@@ -241,14 +257,14 @@ public class PartidaXadrez {
         novoLugarPeca('f', 1, new Bispo(tabuleiro, Cor.BRANCO));
         novoLugarPeca('h', 1, new Torre(tabuleiro, Cor.BRANCO));
         novoLugarPeca('g', 1, new Cavalo(tabuleiro, Cor.BRANCO));
-        novoLugarPeca('a', 2, new Peao(tabuleiro, Cor.BRANCO));
-        novoLugarPeca('b', 2, new Peao(tabuleiro, Cor.BRANCO));
-        novoLugarPeca('c', 2, new Peao(tabuleiro, Cor.BRANCO));
-        novoLugarPeca('d', 2, new Peao(tabuleiro, Cor.BRANCO));
-        novoLugarPeca('e', 2, new Peao(tabuleiro, Cor.BRANCO));
-        novoLugarPeca('f', 2, new Peao(tabuleiro, Cor.BRANCO));
-        novoLugarPeca('g', 2, new Peao(tabuleiro, Cor.BRANCO));
-        novoLugarPeca('h', 2, new Peao(tabuleiro, Cor.BRANCO));
+        novoLugarPeca('a', 2, new Peao(tabuleiro, Cor.BRANCO, this));
+        novoLugarPeca('b', 2, new Peao(tabuleiro, Cor.BRANCO, this));
+        novoLugarPeca('c', 2, new Peao(tabuleiro, Cor.BRANCO, this));
+        novoLugarPeca('d', 2, new Peao(tabuleiro, Cor.BRANCO, this));
+        novoLugarPeca('e', 2, new Peao(tabuleiro, Cor.BRANCO, this));
+        novoLugarPeca('f', 2, new Peao(tabuleiro, Cor.BRANCO, this));
+        novoLugarPeca('g', 2, new Peao(tabuleiro, Cor.BRANCO, this));
+        novoLugarPeca('h', 2, new Peao(tabuleiro, Cor.BRANCO, this));
 
         novoLugarPeca('a', 8, new Torre(tabuleiro, Cor.PRETO));
         novoLugarPeca('b', 8, new Cavalo(tabuleiro, Cor.PRETO));
@@ -258,13 +274,13 @@ public class PartidaXadrez {
         novoLugarPeca('d', 8, new Rainha(tabuleiro, Cor.PRETO));
         novoLugarPeca('h', 8, new Torre(tabuleiro, Cor.PRETO));
         novoLugarPeca('g', 8, new Cavalo(tabuleiro, Cor.PRETO));
-        novoLugarPeca('a', 7, new Peao(tabuleiro, Cor.PRETO));
-        novoLugarPeca('b', 7, new Peao(tabuleiro, Cor.PRETO));
-        novoLugarPeca('c', 7, new Peao(tabuleiro, Cor.PRETO));
-        novoLugarPeca('d', 7, new Peao(tabuleiro, Cor.PRETO));
-        novoLugarPeca('e', 7, new Peao(tabuleiro, Cor.PRETO));
-        novoLugarPeca('f', 7, new Peao(tabuleiro, Cor.PRETO));
-        novoLugarPeca('g', 7, new Peao(tabuleiro, Cor.PRETO));
-        novoLugarPeca('h', 7, new Peao(tabuleiro, Cor.PRETO));
+        novoLugarPeca('a', 7, new Peao(tabuleiro, Cor.PRETO, this));
+        novoLugarPeca('b', 7, new Peao(tabuleiro, Cor.PRETO, this));
+        novoLugarPeca('c', 7, new Peao(tabuleiro, Cor.PRETO, this));
+        novoLugarPeca('d', 7, new Peao(tabuleiro, Cor.PRETO, this));
+        novoLugarPeca('e', 7, new Peao(tabuleiro, Cor.PRETO, this));
+        novoLugarPeca('f', 7, new Peao(tabuleiro, Cor.PRETO, this));
+        novoLugarPeca('g', 7, new Peao(tabuleiro, Cor.PRETO, this));
+        novoLugarPeca('h', 7, new Peao(tabuleiro, Cor.PRETO, this));
     }
 }
