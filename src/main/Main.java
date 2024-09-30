@@ -39,7 +39,11 @@ public class Main {
                 }
                 if(partidaXadrez.getPromovida() != null) {
                     System.out.print("Digite a peça a ser promovida (B/C/T/RA): ");
-                    String tipo = sc.nextLine();
+                    String tipo = sc.nextLine().toUpperCase();
+                    while (!tipo.equals("B") && !tipo.equals("C") && !tipo.equals("T") && !tipo.equals("RA")) {
+                        System.out.print("Valor inválido! Digite o valor da peça a ser promovida (B/C/T/RA): ");
+                        tipo = sc.nextLine().toUpperCase();
+                    }
                     partidaXadrez.substituirPecaPromovida(tipo);
                 }
             } catch (XadrezException | InputMismatchException e) {
