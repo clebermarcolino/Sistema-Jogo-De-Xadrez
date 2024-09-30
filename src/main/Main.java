@@ -19,6 +19,7 @@ public class Main {
         do {
             try {
                 UI.limparTela();
+                UI.exibirLogo();
                 UI.mostrarPartida(partidaXadrez, capturadas);
                 System.out.println();
                 System.out.print("Origem: ");
