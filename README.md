@@ -47,7 +47,7 @@ xadrez
 ### Observações
 
 * Este projeto foi criado como um exercício para o aprendizado de Java.
-* O código segue as diretrizes e convenções de estilo do professor Nélio Alves.
+* O código segue as diretrizes e diagrama UML do professor Nélio Alves.
 * A lógica do jogo de xadrez está completa, mas o projeto pode ser aprimorado com recursos adicionais, como interface gráfica, diferentes níveis de dificuldade, etc.
 
 ### Agradecimentos
